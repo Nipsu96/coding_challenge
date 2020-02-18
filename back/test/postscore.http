@@ -1,0 +1,7 @@
+POST  http://localhost:3001/score HTTP/1.1
+Content-Type: application/json
+
+{
+    "username": "Bunajuuri",
+    "score": "7"
+}

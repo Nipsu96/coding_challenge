@@ -13,9 +13,9 @@ app.use(bodyParser.json())
 const options = config.DATABASE_OPTIONS;
 
 const knex = require('knex')(options);
-router.get('/score', (request, response) => {
+router.get('/', (request, response) => {
   // response.json(note)
-  knex.from('highscore').select("*").orderBy('score','ASC')
+  knex.from('highscore').select("*").orderBy('score','DESC')
     .then((rows) => {
       console.log(rows)
       response.json(rows)
@@ -24,11 +24,11 @@ router.get('/score', (request, response) => {
 
 })
 
-router.post('/score', (request, response) => {
+router.post('/', (request, response) => {
   const score = request.body
   console.log(score)
 
-console.log(note);
+console.log(score);
 knex('highscore').insert(score)
   .then((id) => {
     console.log("more data inserted")

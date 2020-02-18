@@ -2,10 +2,11 @@
   text-align: center;
  
 }
-body{
+body,html{
    background-image:linear-gradient(rgb(20, 9, 20),rgb(44, 6, 44), rgb(63, 0, 63));
    background-repeat: no-repeat;
   background-size: cover;
+  height:100%;
 }
 p{
   color:white;
@@ -21,8 +22,27 @@ p{
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+ul{
+list-style-type: none;
 }
+
+
+table{
+  padding: 0.4em;
+  background-color: blueviolet;
+  border:1px solid #282c34;
+  border-collapse: collapse;
+  text-align: center;
+  margin:auto;
+}
+
+th,td,tr{
+  
+  padding: 0.4em;
+  background-color: blueviolet;
+  border:1px solid #282c34;
+  border-collapse: collapse;
+  text-align: center;
+}
+
 
