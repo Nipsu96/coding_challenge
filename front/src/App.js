@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import Scoreboard from './components/scoreboard';
 
+
 const serviceUrl= "/score"
 
 function App() {

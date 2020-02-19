@@ -15,7 +15,7 @@ const knex = require('knex')(options);
 
 app.get('/score', (request, response) => {
     // response.json(note)
-    knex.from('highscore').select("*").orderBy('score','ASC')
+    knex.from('highscore').select("*").orderBy('username','DESC')
       .then((rows) => {
         console.log(rows)
         response.json(rows)
