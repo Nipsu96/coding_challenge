@@ -13,10 +13,10 @@ Installation Guide (Windows)
 
 Folder structure (locations of folders needed in install)
 
-├── back
-│   ├──database
-│
-└── front
+├── back<br>
+│   ├──database<br>
+│<br>
+└── front<br>
 
 Clone this repositary to your local device and run npm install in both front and back folders with Command Prompt to install depencies. After that run npm run build in front folder and moved the created build folder into the root of the back. Navigate inside of the database folder and run migrations and seeds with following commands: npx knex migrate:latest & npx knex seed:run (You have to first set up SQL-database and configurate settings in knexfile.js). Finally create a .env file in the root of the back-folder and fill it with the following information: 
 <br>
