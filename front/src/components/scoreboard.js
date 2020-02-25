@@ -34,37 +34,53 @@ const doSubmit = e => {
 }
 
 const Scoreboard = ({scores,addScore}) => {
-    const [sort, setSort] = useState(false);
+    const [sortScore, setSortScore] = useState(true);
+    const [sortName, setSortName] = useState(true);
 let scorelist = scores;
 
- 
 
-const myFunction = () => {
-    if(sort === true){
-    scorelist = scores.sort(function(a, b){return b - a} )
+const sortByScore = () => {
+    if(sortScore === true){
+    scorelist = scores.sort(function(a, b){return b.score - a.score} )
+    setSortScore(false)
     } else {
-    scorelist = scores.sort(function(a, b){return a - b})
-}}
-
- 
-
-const nameButton = () => {
-    scorelist = scores
-    setSort(false)
+    scorelist = scores.sort(function(a, b){return a.score - b.score})
+    setSortScore(true)
 }
-//  console.log(scores)
-    return(
+} 
+const sortByName = () => {
+    if(sortName === true){
+    scorelist = scores.sort(function (a,b){
+        if (a.username < b.username){return -1}
+        if (a.username > b.username){return 1}
+        return 0;
+    })
+    setSortName(false)
+    } else {
+    scorelist = scores.sort(function (a,b){
+        if (a.username > b.username){return -1}
+        if (a.username < b.username){return 1}
+        return 0;
+    })
+    setSortName(true)
+}
+}
+const userSort = sortName ? <i className="fa fa-caret-up" aria-hidden="true"></i>: <i className="fa fa-caret-down" aria-hidden="true"></i>
+
+const scoreSort = sortScore ? <i className="fa fa-caret-up" aria-hidden="true"></i>: <i className="fa fa-caret-down" aria-hidden="true"></i>
+
+return(
         <div> 
            
             <table className ="score">
                 <thead>
                 <tr>
-                    <th>Username</th>
-                    <th>Score</th>
+                    <th onClick = {e => sortByName()}>Username {userSort}</th>
+                    <th onClick = {e => sortByScore()}>Score {scoreSort}</th>
                 </tr> 
                 </thead>
                <tbody>
-            {scorelist.map(score => <Score key={score.id} score={score}/>)} 
+            {scorelist.map(score => <Score key={score.score_id} score={score}/>)} 
              </tbody>
             </table>
             <div className = "addScore">

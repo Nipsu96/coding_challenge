@@ -15,9 +15,8 @@ const options = config.DATABASE_OPTIONS;
 const knex = require('knex')(options);
 router.get('/', (request, response) => {
   // response.json(note)
-  knex.from('highscore').select("*").orderBy('score','DESC')
+  knex.from('highscore').select("*").orderBy('username','ASC')
     .then((rows) => {
-      console.log(rows)
       response.json(rows)
     })
     .catch((err) => { console.log(err); throw err })

@@ -15,7 +15,7 @@ function App() {
       setScores(response.data)
     })
   }
-  useEffect(hook)
+  useEffect(hook,[])
 
   const addScore = (e,newUser,newScore) =>{
     e.preventDefault();
